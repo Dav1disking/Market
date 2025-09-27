@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/7a22ef7fff.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marektplace</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="title"><i class="fa-solid fa-gift"></i> Toy Shop</h1>
+        <p id="description">Your one-stop shop for fun, learning, and endless smiles!</p>
+    </header>
+
+    <main id="mainContainer">
+        <!-- Search Category badges -->
+        <div id="container">
+            <input placeholder="Search ..." type="search" id="searchBar">
+            <!-- Categories -->
+            <select id="categories">
+                <option>All Categories</option>
+                <option>Toys</option>
+                <option>Snacks</option>
+                <option>Drinks</option>
+                <option>Sports</option>
+            </select>
+            <!-- Sort Price -->
+            <button id="priceSortter" onclick="sortByPrice()">Sort by Price <i class="fa-solid fa-arrow-up"></i> </button>
+            <!-- Suggetions -->
+            <div id="suggetions">
+                <div><button id="Sales">🔥 Some on sale!</button></div>
+                <div><button id="Allunder3000">💸 All under ₦3000</button></div>
+                <div><button id="Cheapest">Cheapest: Chocolate ₦200</button></div>
+                <div><button id="Expensive">Most Expensive: Soccer Ball ₦2500</button></div>
+            </div>
+        </div>
+
+        <!-- Bottom Main -->
+        <div id="bottomMain">
+            <!-- Products grid -->
+            <!-- <div id="grid"> -->
+                <section class="products" id="productList">
+
+                    <!-- <div class="product">
+                        <p id="name">Milk Chocolate</p>
+                        <p id="Amount&type">Snacks • ₦420</p>
+
+                        <p id="stock">In Stock: 10</p>
+
+                        <p id="on-sale">ON SALE</p>
+
+                        <div><button id="AddtoCart">Add to Cart</button> <button id="Details">Details</button></div>
+                    </div> -->
+<!-- 
+                    <div class="product">
+                        <p id="name">Milk Chocolate</p>
+                        <p id="Amount&type">Snacks • ₦420</p>
+
+                        <p id="stock">In Stock: 10</p>
+
+                        <p id="on-sale">ON SALE</p>
+
+                        <div><button id="AddtoCart">Add to Cart</button> <button id="Details">Details</button></div>
+                    </div>
+
+                    <div class="product">
+                        <p id="name">Milk Chocolate</p>
+                        <p id="Amount&type">Snacks • ₦420</p>
+
+                        <p id="stock">In Stock: 10</p>
+
+                        <p id="on-sale">ON SALE</p>
+
+                        <div><button id="AddtoCart">Add to Cart</button> <button id="Details">Details</button></div>
+                    </div>
+
+
+                    <div class="product">
+                        <p id="name">Milk Chocolate</p>
+                        <p id="Amount&type">Snacks • ₦420</p>
+
+                        <p id="stock">In Stock: 10</p>
+
+                        <p id="on-sale">ON SALE</p>
+
+                        <div><button id="AddtoCart">Add to Cart</button> <button id="Details">Details</button></div>
+                    </div>
+
+
+                    <div class="product">
+                        <p id="name">Milk Chocolate</p>
+                        <p id="Amount&type">Snacks • ₦420</p>
+
+                        <p id="stock">In Stock: 10</p>
+
+                        <p id="on-sale">ON SALE</p>
+
+                        <div><button id="AddtoCart">Add to Cart</button> <button id="Details">Details</button></div>
+                        -->
+                    <!-- </div> -->
+                </section>
+             <!-- </div> -->
+
+            <!-- Cart -->
+
+            <div id="cart">
+                <h1 id="cart-header">Cart</h1>
+                <ul id="cartitem">  </ul>
+                <div id="cart-bottom">
+                    <p id="cart-info">Total: ₦0</p>
+                    <div> <button id="Purchaseitem">Purchase</button> <button id="clearcart">Clear</button> </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <small>© 2025 Toy Shop</small>
+    </footer>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
