@@ -114,8 +114,8 @@ function AddtoCart(id, price) {
     return obj.id == id
   })
 
-  CartItems.innerHTML += `<il id="itemInCart"> <p id="info">${findProductById.name} • ₦${price}</p> <div id="amountofitems">  <button onclick="SubtractItemAmount(${price}, ${id})" id="SubtractAmount">-</button> <input id="amount" type="number"> <button onclick="AddItemAmount(${price}, ${id})" id="AddAmount">+</button> </div> <button id="Delete-From-Cart">Remove</button></il>`
-  const amount = document.getElementById("amount")
+  CartItems.innerHTML += `<il id="item-${findProductById.id}" class="itemInCart"> <p id="info-${findProductById.id}">${findProductById.name} • ₦${price}</p> <div id="amountofitems">  <button onclick="SubtractItemAmount(${price}, ${id})" id="SubtractAmount">-</button> <input id="amount-${findProductById.id}" type="number"> <button onclick="AddItemAmount(${price}, ${id})" id="AddAmount">+</button> </div> <button id="Delete-From-Cart" onclick="RemoveItem(${id})">Remove</button></il>`
+  const amount = document.getElementById("amount-" + findProductById.id)
 
   findProductById.amount = 1
 
@@ -137,6 +137,29 @@ function AddtoCart(id, price) {
 // }
 
 // restock()
+
+//////////////////////////////////////////////////////////////////
+
+function Notify(auth, time, gui) {
+  document.getElementById("placement").innerHTML += `<div id="notification" class="${auth}" onclick="selfdestory()"> <p id="notificationMessage">Hello there you have gotten a message</p> </div>`
+  document.getElementById("placement").innerHTML += gui
+
+  setTimeout(() => {
+    console.log("logged")
+    const notify = document.getElementById("notification")
+
+    if (notify.className = `clearcart`) {
+      console.log("verified")
+      const clearcartbtn = document.getElementById("clearcart")
+      clearcartbtn.outerHTML = `<button id="clearcart" class="clickable" onclick="clearallitems()" >Clear</button>`
+    }
+
+    notify.outerHTML = ``
+    gui.outerHTML = ``
+  }, time);
+}
+
+/////////////////////////////////////////////////////////////////
 
 products.map(function (obj) {
   document.addEventListener("DOMContentLoaded", () => {
@@ -166,8 +189,8 @@ products.map(function (obj) {
 })
 
 function SubtractItemAmount (price, id) {
-  const text = document.getElementById("amount")
-  const info = document.getElementById("info")
+  const text = document.getElementById("amount-" + id)
+  const info = document.getElementById("info-" + id)
 
   let number = Number(text.value)
   text.value = number - 1
@@ -181,11 +204,11 @@ function SubtractItemAmount (price, id) {
   info.innerText = findProductById.name + " • ₦" + findProductById.amount
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 
 function AddItemAmount (price, id) {
-  const text = document.getElementById("amount")
-  const info = document.getElementById("info")
+  const text = document.getElementById("amount-" + id)
+  const info = document.getElementById("info-" + id)
 
   let number = Number(text.value)
   text.value = number + 1
@@ -200,12 +223,45 @@ function AddItemAmount (price, id) {
   info.innerText = findProductById.name + " • ₦" + findProductById.amount
 }
 
-function Asort () {
-  
+//////////////////////////////////////////////////////////////////////////
+
+function RemoveItem(id) {
+   const findProductById = products.find(function (obj) {
+    return obj.id == id
+  })
+
+  const itembyid = document.getElementById("item-" + id)
+  findProductById.added = false
+
+  itembyid.outerHTML = ``
+  displayProducts(displayedProducts)
 }
+
+/////////////////////////////////////////////////////////////////////////
+
+function clearallitems() {
+  console.log("input")
+
+  const carthtml = document.getElementById("cart")
+  const cartitemshtml = document.getElementById("cartitem")
+
+  const notify = document.getElementById("notification")
+  const clearcartbtn = document.getElementById("clearcart")
+
+  if (cartitemshtml.innerHTML == ``) {
+    return
+  } else {
+    // Notify("clearcart", 60000, `<div id="message"> <p id="warning">Are you sure you want to clear your cart</p> <div id="buttons"><button id="comfirm" onclick="comfirm()" >Yes I do</button> <button id="deny" onclick="deny()">No I dont </button></div> </div>`)
+    clearcartbtn.outerHTML = `<button id="clearcart" class="unclickable" >Clear</button>`
+    console.log("passed")
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
 
 document.getElementById("searchBar").addEventListener("input", searchProduct)
 document.getElementById("categories").addEventListener("change", sortList)
-document.getElementById("amount").addEventListener("input", Asort)
 // document.getElementById("stock").addEventListener("change", restock)
 displayProducts(products)

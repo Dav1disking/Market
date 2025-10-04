@@ -10,9 +10,19 @@
 </head>
 
 <body>
+    <!-- <div id="notification" class=""> <p id="notificationMessage">Hello there you have gotten a message</p> </div> -->
+    <div id="placement"></div>
+
     <header>
-        <h1 id="title"><i class="fa-solid fa-gift"></i> Toy Shop</h1>
-        <p id="description">Your one-stop shop for fun, learning, and endless smiles!</p>
+        <div id="head">
+            <h1 id="title"><i class="fa-solid fa-gift"></i> Toy Shop</h1>
+            <p id="description">Your one-stop shop for fun, learning, and endless smiles!</p>
+        </div>
+
+        <div id="Inbox">
+            <p>Inbox</p>
+        </div>
+
     </header>
 
     <main id="mainContainer">
@@ -108,11 +118,14 @@
 
             <div id="cart">
                 <h1 id="cart-header">Cart</h1>
-                <ul id="cartitem">  </ul>
+                <ul id="cartitem"></ul>
                 <div id="cart-bottom">
                     <p id="cart-info">Total: ₦0</p>
-                    <div> <button id="Purchaseitem">Purchase</button> <button id="clearcart">Clear</button> </div>
+                    <div><button id="Purchaseitem">Purchase</button> <button id="clearcart" class="clickable" onclick="clearallitems()">Clear</button> </div>
+                   
                 </div>
+
+                <!-- <div id="message"> <p id="warning">Are you sure you want to clear your cart</p> <div id="buttons"><button id="comfirm" onclick="comfirm()" >Yes I do</button> <button id="deny" onclick="deny()">No I dont </button></div> </div> -->
             </div>
 
         </div>

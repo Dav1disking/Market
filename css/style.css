@@ -23,8 +23,15 @@ body{
 }
 
 header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
     background-color: #669bbc;
+
     text-align: center;
+    
     padding: 10px;
 }
 
@@ -52,7 +59,7 @@ footer {
     background-color: #fdf0d5;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
 
-    height: 100vh;
+    height: fit-content;
     
 }
 
@@ -215,8 +222,6 @@ footer {
 
 #clearcart {
     color: white;
-    cursor: pointer;
-    background: #c90000;
     border-style: none;
     border-radius: 6px;
     padding: 6px 10px;
@@ -247,7 +252,7 @@ footer {
     cursor: pointer;
 }
 
-#itemInCart {
+.itemInCart {
     width: 90%;
     padding: 5px;
 
@@ -264,6 +269,110 @@ footer {
     
     border-radius: 4px;
 }
+
+#message {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    gap: 20px;
+
+    padding: 15px;
+
+    border-radius: 4px;
+    border: none;
+
+    background-color: #efefef;
+
+    box-shadow: #dadada 5px 5px;
+}
+
+#warning {
+    color: black;
+}
+
+#duration {
+    background-color: #0087cf;
+    height: 50px;
+    width: auto;
+}
+
+#notification {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: fit-content;
+    width: max-content;
+
+    gap: 20px;
+
+    margin-left: 10px;
+
+    opacity: 0.95;
+    background-color: #f8f8f8;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 20px;
+
+    top: 5px;
+    position: sticky;
+
+
+    transition: 2450ms;
+}
+
+#placement {
+    top: 5px;
+    position: sticky;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.clickable{
+    cursor: pointer;
+    background-color: #c90000;
+}
+
+.unclickable{
+    cursor: not-allowed;
+    background-color: #630000;
+}
+
+#comfirm {
+    display: flex;
+
+    padding: 5px;
+    
+    border-radius: 5px;
+    border: none;
+
+    color: black;
+    background-color: #dadada;
+
+    cursor:grab;
+}
+
+#deny {
+    display: flex;
+
+    padding: 5px;
+    
+    border-radius: 5px;
+    border: none;
+
+    color: black;
+    background-color: #dadada;
+
+    cursor: grab;
+}
+
 
 #cartitem {
     display: flex;
